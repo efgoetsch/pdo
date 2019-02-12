@@ -73,3 +73,18 @@ echo "<p>Pet $id inserted successfully.</p>";
     $statement->execute();
     $id = $dbh->lastInsertId();
     echo "<p>Pet $id inserted successfully.</p>";
+
+    //define the query
+    $sql = "UPDATE pets SET name = :new WHERE name = :old";
+
+    //prepare the statement
+    $statement = $dbh->prepare($sql);
+
+    //bind the parameters
+    $old = 'Joey';
+    $new = 'Troy';
+    $statement->bindParam(':old', $old, PDO::PARAM_STR);
+    $statement->bindParam(':new', $new, PDO::PARAM_STR);
+
+    //execute
+    $statement->execute();

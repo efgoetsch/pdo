@@ -133,3 +133,18 @@ echo "<p>Pet $id inserted successfully.</p>";
     //process the result
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     echo $row['name'].", ".$row['type'].", ".$row['color'];
+
+    //define the query
+    $sql = "SELECT * FROM pets";
+
+    //prepare the statement
+    $statement = $dbh->prepare($sql);
+
+    //execute
+    $statement->execute();
+
+    //process the result
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($result as $row) {
+        echo $row['name'].", ".$row['type'].", ".$row['color'];
+    }

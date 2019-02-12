@@ -43,3 +43,5 @@
 
     //execute
     $statement->execute();
+    $id = $dbh->lastInsertId();
+    echo "<p>Pet $id inserted successfully.</p>";

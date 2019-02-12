@@ -31,4 +31,15 @@
     $statement->bindParam(':color', $color, PDO::PARAM_STR);
 
     //execute
-$statement->execute();
+    $statement->execute();
+
+    //bind the parameters
+    $type = 'snake';
+    $name = 'Slitherin';
+    $color = 'green';
+    $statement->bindParam(':type', $type, PDO::PARAM_STR);
+    $statement->bindParam(':name', $name, PDO::PARAM_STR);
+    $statement->bindParam(':color', $color, PDO::PARAM_STR);
+
+    //execute
+    $statement->execute();
